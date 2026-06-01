@@ -54,6 +54,13 @@
           <a href="#policy" class="transition duration-200 hover:text-white/70">
             経営方針
           </a>
+
+          <a
+            href="#contact"
+            class="mt-[1rem] inline-flex items-center justify-center rounded-full border border-white/20 bg-white px-[2rem] py-[1rem] text-center text-[1rem] font-[600] tracking-[0.1em] text-[#1f6b4a] transition duration-200 hover:bg-white/90 md:hidden"
+          >
+            お問い合わせ
+          </a>
         </nav>
 
         <button
@@ -76,7 +83,7 @@
 
         <a
           href="#contact"
-          class="hidden rounded-full border border-white/20 bg-white px-[2.5rem] py-[0.75rem] text-[1rem] font-[600] text-[#1f6b4a] transition duration-200 hover:bg-white/90 md:inline-block"
+          class="hidden rounded-full border border-[#1f6b4a] bg-white px-[2.5rem] py-[0.75rem] text-[1rem] font-[600] text-[#1f6b4a] transition duration-200 hover:bg-white/90 md:inline-block"
         >
           お問い合わせ
         </a>
@@ -429,42 +436,44 @@
         const isMobile = window.innerWidth < 768;
         const isMenuOpen = !globalNav.classList.contains("hidden");
 
-        header.classList.toggle("bg-white", isScrolled);
-        header.classList.toggle("text-[#1f2a24]", isScrolled);
-        header.classList.toggle("border-[#dce5d8]", isScrolled);
+        const shouldChangeColor = !isMobile && isScrolled;
 
-        header.classList.toggle("bg-[#1f6b4a]", !isScrolled);
-        header.classList.toggle("text-white", !isScrolled);
-        header.classList.toggle("border-white/10", !isScrolled);
+        header.classList.toggle("bg-white", shouldChangeColor);
+        header.classList.toggle("text-[#1f2a24]", shouldChangeColor);
+        header.classList.toggle("border-[#dce5d8]", shouldChangeColor);
 
-        headerLogo.classList.toggle("text-white", !isScrolled);
-        headerLogo.classList.toggle("text-[#1f2a24]", isScrolled);
+        header.classList.toggle("bg-[#1f6b4a]", !shouldChangeColor);
+        header.classList.toggle("text-white", !shouldChangeColor);
+        header.classList.toggle("border-white/10", !shouldChangeColor);
+
+        headerLogo.classList.toggle("text-white", !shouldChangeColor);
+        headerLogo.classList.toggle("text-[#1f2a24]", shouldChangeColor);
 
         headerLinks.forEach((link) => {
           if (isMobile && isMenuOpen) {
             link.classList.add("text-white", "hover:text-white/70");
             link.classList.remove("text-[#1f2a24]", "hover:text-[#1f6b4a]");
           } else {
-            link.classList.toggle("text-white", !isScrolled);
-            link.classList.toggle("text-[#1f2a24]", isScrolled);
-            link.classList.toggle("hover:text-white/70", !isScrolled);
-            link.classList.toggle("hover:text-[#1f6b4a]", isScrolled);
+            link.classList.toggle("text-white", !shouldChangeColor);
+            link.classList.toggle("text-[#1f2a24]", shouldChangeColor);
+            link.classList.toggle("hover:text-white/70", !shouldChangeColor);
+            link.classList.toggle("hover:text-[#1f6b4a]", shouldChangeColor);
           }
         });
 
         if (headerButton) {
-          headerButton.classList.toggle("bg-white", !isScrolled);
-          headerButton.classList.toggle("text-[#1f6b4a]", !isScrolled);
-          headerButton.classList.toggle("border-white/20", !isScrolled);
+          headerButton.classList.toggle("bg-white", !shouldChangeColor);
+          headerButton.classList.toggle("text-[#1f6b4a]", !shouldChangeColor);
+          headerButton.classList.toggle("border-white/20", !shouldChangeColor);
 
-          headerButton.classList.toggle("bg-[#1f6b4a]", isScrolled);
-          headerButton.classList.toggle("text-white", isScrolled);
-          headerButton.classList.toggle("border-[#1f6b4a]", isScrolled);
+          headerButton.classList.toggle("bg-[#1f6b4a]", shouldChangeColor);
+          headerButton.classList.toggle("text-white", shouldChangeColor);
+          headerButton.classList.toggle("border-[#1f6b4a]", shouldChangeColor);
         }
 
         menuLines.forEach((line) => {
-          line.classList.toggle("bg-white", !isScrolled);
-          line.classList.toggle("bg-[#1f2a24]", isScrolled);
+          line.classList.toggle("bg-white", !shouldChangeColor);
+          line.classList.toggle("bg-[#1f2a24]", shouldChangeColor);
         });
 
         globalNav.classList.toggle("bg-[#1f6b4a]", isMobile);
