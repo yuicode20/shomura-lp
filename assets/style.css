@@ -164,6 +164,20 @@ div {
   }
 }
 
+#menu-button.is-open .menu-line:nth-child(1) {
+  top: 0.6875rem;
+  transform: rotate(45deg);
+}
+
+#menu-button.is-open .menu-line:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-button.is-open .menu-line:nth-child(3) {
+  top: 0.6875rem;
+  transform: rotate(-45deg);
+}
+
 .js-fadein {
   opacity: 0;
   transform: translateY(3rem);
