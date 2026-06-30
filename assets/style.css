@@ -77,6 +77,47 @@ div {
   font-size: clamp(2rem, 5vw, 3.25rem);
 }
 
+.section-head p {
+  margin: 1rem auto 0;
+  max-width: 48rem;
+  color: #4d5b52;
+  text-align: left;
+}
+
+@media (min-width: 48rem) {
+  .section-head p {
+    text-align: center;
+    font-size: 1.125rem;
+  }
+}
+
+.sub-hero {
+  background:
+    linear-gradient(rgba(31, 42, 36, 0.64), rgba(31, 42, 36, 0.64)),
+    url("./images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 12rem 1rem 6rem;
+}
+
+.sub-hero__inner {
+  margin: 0 auto;
+  max-width: 72rem;
+  color: #ffffff;
+}
+
+.sub-hero__inner h1 {
+  margin-top: 1rem;
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+}
+
+.sub-hero__inner p:last-child {
+  margin-top: 1.5rem;
+  max-width: 42rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.125rem;
+}
+
 .check-card {
   position: relative;
   overflow: hidden;
@@ -195,6 +236,31 @@ div {
   color: #4d5b52;
 }
 
+.benefit-card {
+  border: 1px solid #dce5d8;
+  background: #f7f8f5;
+  padding: 1.5rem;
+  min-height: 19rem;
+}
+
+.benefit-card > p:first-child {
+  margin-bottom: 1.25rem;
+  color: #1f6b4a;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+}
+
+.benefit-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.35rem;
+}
+
+.benefit-card p:last-child {
+  color: #4d5b52;
+}
+
 .number-card {
   display: flex;
   flex-direction: column;
@@ -233,35 +299,45 @@ div {
 }
 
 .voice-card {
-  position: relative;
   overflow: hidden;
-  border-left: 0.25rem solid #1f6b4a;
+  border: 1px solid #dce5d8;
   background: #ffffff;
-  padding: 1.25rem 1.25rem 1.25rem 1.5rem;
-  box-shadow: 0 0.75rem 2rem rgba(31, 42, 36, 0.06);
+  box-shadow: 0 1rem 3rem rgba(31, 42, 36, 0.08);
 }
 
-.voice-card::before {
-  content: "“";
-  position: absolute;
-  right: 1rem;
-  top: -0.75rem;
-  color: rgba(31, 107, 74, 0.12);
-  font-family: "Noto Serif JP", serif;
-  font-size: 5rem;
-  line-height: 1;
-}
-
-.voice-card__role {
+.voice-card__image {
   position: relative;
+  height: 16rem;
+  overflow: hidden;
+  background: #dce5d8;
+}
+
+.voice-card__image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.voice-card__body {
+  padding: 1.5rem;
+}
+
+.voice-card__label {
   margin-bottom: 0.5rem;
   color: #1f6b4a;
   font-size: 0.875rem;
   font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
-.voice-card p:last-child {
-  position: relative;
+.voice-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.375rem;
+}
+
+.voice-card__body p:not(.voice-card__label) {
+  margin-top: 0.75rem;
   color: #4d5b52;
 }
 
@@ -291,6 +367,64 @@ div {
   color: #4d5b52;
 }
 
+.message-block {
+  background: #ffffff;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.message-block p {
+  margin-top: 1rem;
+  color: #4d5b52;
+}
+
+.signature {
+  margin-top: 2rem;
+  color: #1f2a24;
+  font-weight: 600;
+  text-align: right;
+}
+
+.overview-table {
+  border-top: 1px solid #dce5d8;
+}
+
+.overview-table div {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  border-bottom: 1px solid #dce5d8;
+}
+
+.overview-table dt,
+.overview-table dd {
+  padding: 1.25rem 1.5rem;
+}
+
+.overview-table dt {
+  background: #f2f6ef;
+  color: #1f6b4a;
+  font-weight: 600;
+}
+
+.overview-table dd {
+  background: #ffffff;
+  color: #4d5b52;
+}
+
+.business-card {
+  border: 1px solid #dce5d8;
+  background: #ffffff;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.business-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.business-card p {
+  color: #4d5b52;
+}
+
 @media (max-width: 48rem) {
   .section {
     padding: 4.5rem 0;
@@ -310,6 +444,10 @@ div {
     padding: 1.5rem;
   }
 
+  .benefit-card {
+    min-height: auto;
+  }
+
   .number-card {
     padding: 1.5rem;
   }
@@ -324,15 +462,29 @@ div {
   }
 
   .voice-card {
-    padding: 1rem 1rem 1rem 1.25rem;
+    box-shadow: 0 0.75rem 2rem rgba(31, 42, 36, 0.06);
+  }
+
+  .voice-card__image {
+    height: 13rem;
+  }
+
+  .voice-card__body {
+    padding: 1.25rem;
   }
 
   .recruit-table div {
     grid-template-columns: 1fr;
   }
 
+  .overview-table div {
+    grid-template-columns: 1fr;
+  }
+
   .recruit-table dt,
-  .recruit-table dd {
+  .recruit-table dd,
+  .overview-table dt,
+  .overview-table dd {
     padding: 1rem;
   }
 }
