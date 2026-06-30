@@ -24,13 +24,17 @@
       class="fixed top-0 z-50 w-full bg-[#1f6b4a] text-white backdrop-blur transition-all duration-300"
     >
       <div
-        class="mx-auto flex max-w-7xl items-center justify-between px-[1rem] py-[1rem]"
+        class="mx-auto flex max-w-7xl items-center justify-between px-[1rem] py-[0.5rem]"
       >
         <a
           href="./index.html"
-          class="text-[1.125rem] font-[600] tracking-[0.2em] text-white"
+          class="site-logo"
+          aria-label="有限会社庄村商会 トップページ"
         >
-          有限会社 庄村商会
+          <img
+            src="./assets/images/shomura_shokai_logo_header.png"
+            alt="有限会社庄村商会"
+          />
         </a>
 
         <nav
@@ -228,7 +232,6 @@
 
     <script>
       const header = document.getElementById("site-header");
-      const headerLogo = header.querySelector("a");
       const headerLinks = header.querySelectorAll(".js-nav-link");
       const headerButton = document.getElementById("header-contact-button");
       const menuButton = document.getElementById("menu-button");
@@ -247,9 +250,6 @@
         header.classList.toggle("bg-[#1f6b4a]", !shouldChangeColor);
         header.classList.toggle("text-white", !shouldChangeColor);
         header.classList.toggle("border-white/10", !shouldChangeColor);
-
-        headerLogo.classList.toggle("text-white", !shouldChangeColor);
-        headerLogo.classList.toggle("text-[#1f2a24]", shouldChangeColor);
 
         headerLinks.forEach((link) => {
           link.classList.toggle("text-white", !shouldChangeColor);
